@@ -10,8 +10,9 @@ do {
 /**
  * Function that draws the hourglass on Top
  * @param n is the size of hourglass
+ * @param character is the character that will be used to draw the hourglass
  */
-const calculateHourglassOnTop = (n) => {
+const calculateHourglassOnTop = (n, character="#") => {
     let hourglass = "";
     let cont = 0;
     let contMax = n;
@@ -20,7 +21,7 @@ const calculateHourglassOnTop = (n) => {
     for (let i = 0; i < n; i++) {
         for (let j = 0; j < n; j++) {
             if (cont === j || contMax - 1 === j || j === 0 || j === n - 1 || i === 0 || i === n - 1 || (j > cont && j < contMax)) {
-                hourglass += "#";
+                hourglass += character;
             } else {
                 hourglass += " ";
             }
@@ -36,8 +37,9 @@ const calculateHourglassOnTop = (n) => {
 /**
  * Function that draws the hourglass on Bottom
  * @param n is the size of hourglass
+ * @param character is the character that will be used to draw the hourglass
  */
-const calculateHourglassOnBottom = (n) => {
+const calculateHourglassOnBottom = (n, character="#") => {
     let hourglass = "";
     let cont = 0;
     let contMax = n - 1;
@@ -47,7 +49,7 @@ const calculateHourglassOnBottom = (n) => {
         for (let j = 0; j < n; j++) {
             if (cont === j || contMax === j || j === 0 || j === n - 1 || i === 0 || i === n - 1
                 || (j < cont && j > contMax)) {
-                hourglass += "#";
+                hourglass += character;
             } else {
                 hourglass += " ";
             }
