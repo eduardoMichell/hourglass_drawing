@@ -1,6 +1,5 @@
 const prompt = require('prompt-sync')({sigint: true});
 let n;
-
 do {
     n = prompt("Enter the hourglass size: ");
     if (n < 20) {
@@ -8,7 +7,11 @@ do {
     }
 } while (n < 20);
 
-const calculateHourglass = (n) => {
+/**
+ * Function that draws the hourglass on Top
+ * @param n is the size of hourglass
+ */
+const calculateHourglassOnTop = (n) => {
     let hourglass = "";
     let cont = 0;
     let contMax = n;
@@ -27,12 +30,19 @@ const calculateHourglass = (n) => {
         contMax--;
         hourglass = ""
     }
+    console.log(`n = ${n}`)
+}
 
-    hourglass = "";
-    cont = 0;
-    contMax = n - 1;
+/**
+ * Function that draws the hourglass on Bottom
+ * @param n is the size of hourglass
+ */
+const calculateHourglassOnBottom = (n) => {
+    let hourglass = "";
+    let cont = 0;
+    let contMax = n - 1;
 
-    console.log("\nHourglass with sand on bottom")
+    console.log("Hourglass with sand on bottom")
     for (let i = 0; i < n; i++) {
         for (let j = 0; j < n; j++) {
             if (cont === j || contMax === j || j === 0 || j === n - 1 || i === 0 || i === n - 1
@@ -47,6 +57,9 @@ const calculateHourglass = (n) => {
         contMax--;
         hourglass = ""
     }
+    console.log(`n = ${n}`)
 }
 
-calculateHourglass(n);
+calculateHourglassOnTop(n);
+console.log("\n")
+calculateHourglassOnBottom(n);
